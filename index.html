@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="main">
+        <header class="header">
+            <a href="#" class="logo">Siber-Quiz</a>
+            <nav class="navbar">
+                <a href="index.html" class="active">Ana Sayfa</a>
+                <a href="bilgilendirme.html">Bize Ulaşın</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <section class="quiz-section">
+                <div class="quiz-box">
+                    <h1>Siber Quiz</h1>
+                    <div class="quiz-header">
+                        <span>Siber Güvenlik Testi </span>
+                        <span class="header-score">Skor : 0 / 5</span>
+                    </div>
+                    <h2 class="question-text">soru1</h2>
+                    <div class="option-list">
+                        <!-- <div class="option">
+                            <span>A. Bilgisayar Güvenliği</span>
+                        </div>
+                        <div class="option">
+                            <span>B. Siber saldırı</span>
+                        </div>
+                        <div class="option">
+                            <span>C. Siber güvenlik</span>
+                        </div>
+                        <div class="option">
+                            <span>D. Dijital bilgisayar korsanlığı</span>
+                        </div> -->
+                    </div>
+                    <div class="quiz-footer">
+                        <span class="question-total">1/5</span>
+                        <button class="next-btn">İleri</button>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h2>Quiz Sonucu</h2>
+                    <div class="percentage-container">
+                        <div class="circular-progress">
+                            <span class="progress-value">0%</span>
+                        </div>
+                        <span class="score-text">Skorunuz 0 out of 5</span>
+                    </div>
+                    <div class="buttons">
+                        <button class="geribilAl-btn">Geri Bildirim Al</button>
+                        <button class="goHome-btn">Ana Sayfa</button>
+                    </div>
+                </div>
+
+                <div class="feedback-box">
+                    <div class="geridiv">
+                        <button class="geritusu"> Geri </button>
+                    </div>
+                    <span class="title">Quiz Geribildiriminiz:</span>
+                    <span class="feedback-text">lorem ipsum bla bla bla bla</span>
+                    <div class="feedback-footer">
+                        <span class="feedback-total">Skorunuz: 1/5</span>
+                        <button class="ana-btn">Ana Sayfa</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="home">
+                <div class="home-content">
+                    <h1> Güvenli öğrenme </h1>
+                    <p>Siber Güvenlik Bilginizi test etmek için size yardımcı olmaya geldik! Quizi çözmeden önce sizin
+                        için hazırlanan kılavuzdan bilgi edinebilirsiniz.
+                    </p>
+                    <div class="anabuttons">
+                        <button class="start-btn">Quiz'i Başlat</button>
+                        <a href="flpbook.html" class="kilavuzbtn">Kılavuz</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <div class="popup-info">
+        <h2>Quiz Kuralları</h2>
+        <span class="info">1.İşaretlediğiniz Seçeneği değiştiremezsiniz.</span>
+        <span class="info">2.Bir önceki soruya geri dönemezsiniz.</span>
+        <span class="info">3.Bu test kendinizi siber güvenlik alanında ileriye taşımanız için hazırlanmıştır.</span>
+
+        <div class="btn-group">
+            <button class="info-btn exit-btn">Geri Dön</button>
+            <a href="#" class="info-btn continue-btn">Teste Başla</a>
+        </div>
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+    <script src="question.js"></script>
+</body>
+
+</html>

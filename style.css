@@ -1,0 +1,685 @@
+* {
+    font-family: 'Poppins', 'sans-serif';
+    text-align: start;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Padding ve border, width hesaplamasına dahil edilir */
+}
+
+
+body {
+    color: #f0f0f0;
+    background: #09001d;
+    overflow: hidden;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+}
+
+.button {
+    background-color: #4b2977;
+    color: white;
+    border: 2px solid #cccccc;
+    padding: 10px 20px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.button:disabled {
+    background-color: transparent;
+    cursor: not-allowed;
+}
+
+.button:hover {
+    color: #eae7f0;
+    background-color: #8967b6;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 32px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 700;
+    filter: drop-shadow(0 0 5px #09001d);
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 800;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: rgb(44, 4, 82);
+}
+
+.main {
+    min-height: 100vh;
+    background: url('sbw.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    pointer-events: auto;
+    transition: .3s ease;
+}
+
+.main.active {
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 200%;
+}
+
+.home {
+    position: relative;
+    left: -50%;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content {
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.home-content p {
+    font-size: 16px;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    margin-bottom: 30px;
+}
+
+.home-content .anabuttons {
+    width: 400px;
+    height: 47px;
+    font-size: 26px;
+    color: #4b2977;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    display: flex;
+    /* Flexbox özelliğini aktif eder */
+    justify-content: space-between;
+    /* Yatayda ortalar */
+    align-items: center;
+
+}
+
+.home-content .start-btn {
+    width: 190px;
+    height: 55px;
+    background: #5e68c0;
+    border: 2px solid #f0f0f0;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #5e68c0;
+    font-size: 18px;
+    color: #f0f0f0;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    /* Flexbox etkinleştirme */
+    justify-content: center;
+    /* Yatay ortalama */
+    align-items: center;
+    /* Dikey ortalama */
+    transition: .5s;
+}
+
+.home-content .kilavuzbtn {
+    width: 190px;
+    height: 55px;
+    background: #5e68c0;
+    border: 2px solid #f0f0f0;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #5e68c0;
+    font-size: 18px;
+    color: #f0f0f0;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    /* Flexbox etkinleştirme */
+    justify-content: center;
+    /* Yatay ortalama */
+    align-items: center;
+    /* Dikey ortalama */
+    transition: .5s;
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+
+}
+
+.home-content .kilavuzbtn:hover {
+    background: #4b2977;
+    box-shadow: none;
+}
+
+.home-content .start-btn:hover {
+    background: #4b2977;
+    box-shadow: none;
+}
+
+.popup-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.9);
+    width: 500px;
+    background: #f0f0f0;
+    border-radius: 6px;
+    padding: 10px 25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.popup-info.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-info h2 {
+    font-size: 50px;
+    color: #4b2977;
+}
+
+.popup-info .info {
+    display: inline-block;
+    font-size: 16;
+    color: #09001d;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.popup-info .btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+}
+
+.popup-info .btn-group .info-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    height: 45px;
+    background: #4b2977;
+    border: 2px solid #4b2977;
+    outline: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #f0f0f0;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.popup-info .btn-group .info-btn:nth-child(1) {
+    background: transparent;
+    color: #4b2977;
+}
+
+.popup-info .btn-group .info-btn:nth-child(1):hover {
+    background: #f0f0f0;
+    color: #4b2977;
+}
+
+.popup-info .btn-group .info-btn:nth-child(2):hover {
+    background: #4b2977;
+    color: #4b2977;
+}
+
+.quiz-section {
+    position: relative;
+    left: -50%;
+    width: 100%;
+    background: #5e68c0;
+    display: flex;
+    /* bu uc satır merkezledi itemleri.*/
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: .8s ease-in-out;
+    transition-delay: .25s;
+}
+
+.quiz-section.active {
+    left: 0;
+}
+
+.quiz-section .quiz-box {
+    position: relative;
+    width: 500px;
+    left: 0;
+    background: transparent;
+    border: 2px solid #4b2977;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    opacity: 0;
+    /* active kısmından sonra ekledik satırları */
+    pointer-events: none;
+    transform: scale(.9s);
+    transition: .3s ease;
+    transition-delay: 0s;
+}
+
+.quiz-section .quiz-box.active {
+    /*quizbox için jsye yazdıgımız active adlıya atıf */
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: 1s ease;
+    transition-delay: 1s;
+
+}
+
+
+.quiz-box h1 {
+    /*başlık*/
+    font-size: 25px;
+    text-align: center;
+    background: linear-gradient(45deg, transparent, #4b2977, transparent);
+    border-radius: 6px;
+}
+
+.quiz-box .quiz-header {
+    /*score kısmı*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #4b2977;
+    /*çizgi score kısmının altına*/
+    margin-bottom: 30px;
+}
+
+.quiz-header span {
+    /*span etiketi icine yazdıgımız yazı*/
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.quiz-header .header-score {
+    /*score kısmına cerceve cektik*/
+    background: #4b2977;
+    border-radius: 3px;
+    padding: 7px;
+}
+
+.quiz-box .question-text {
+    /*sorunun oldugu yazı*/
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.option-list .option {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 3px;
+    font-size: 18px;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: .3s;
+    /* ustune gelince aksiyonun suresi optionın*/
+}
+
+.option-list .option:hover {
+    /* ustune gelince aksiyon*/
+    background: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.option-list .option.correct {
+    background-color: #5e68c0;
+    color: rgb(6, 250, 148);
+    border-color: rgb(6, 248, 147);
+    font-weight: border;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.option-list .option.incorrect {
+    background-color: #5e68c0;
+    color: rgb(126, 38, 3);
+    border-color: rgb(121, 56, 2);
+    font-weight: border;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: border;
+}
+
+.option-list .option.disabled {
+    pointer-events: none;
+}
+
+.quiz-box .quiz-footer {
+    display: flex;
+    justify-content: space-between;
+    /* nesneler arasına bosluk koyar */
+    align-items: center;
+    border-top: 2px solid #4b2977;
+    /* footer kısmına line koyduk*/
+    padding-top: 10px;
+    margin-top: 15px;
+
+
+}
+
+.quiz-box .question-total {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.quiz-footer .next-btn {
+    width: 100px;
+    height: 45px;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .1);
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, .3);
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    pointer-events: none;
+    /* bunu yapınca butonun aksiyonu kapandı (hover)*/
+    transition: .5s;
+}
+
+
+.quiz-footer .next-btn.active {
+    pointer-events: auto;
+    background: #4b2977;
+    border-color: #4b2977;
+    color: #eae7f0;
+}
+
+.quiz-footer .next-btn.active:hover {
+    background: #4b2977;
+    border-color: #4b2977;
+    color: #eae7f0;
+}
+
+.quiz-section .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(.9);
+    width: 500px;
+    background: transparent;
+    border: 3px solid #4b2977;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+    transition-delay: 0s;
+}
+
+.quiz-section .result-box.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box h2 {
+    font-size: 52px;
+}
+
+.result-box .percentage-container {
+    width: 300px;
+    background: #5e68c0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 40px;
+}
+
+.percentage-container .circular-progress {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: conic-gradient(#4b2977 3.6deg, rgba(255, 255, 255, .1) 0deg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage-container .circular-progress::before {
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: #5e68c0;
+    border-radius: 50%;
+}
+
+.circular-progress .progress-value {
+    position: relative;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.percentage-container .score-text {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.result-box .buttons {
+    display: flex;
+}
+
+.buttons button {
+    width: 130px;
+    height: 47px;
+    background: #4b2977;
+    border: 2px solid #4b2977;
+    outline: none;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #f0f0f0;
+    font-weight: 600;
+    margin: 0 20px 20px;
+    cursor: pointer;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons button:nth-child(1):hover {
+    background: #4b2977;
+    border-color: #4b2977;
+
+}
+
+.buttons button:nth-child(2) {
+    background: transparent;
+    color: #4b2977;
+}
+
+.buttons button:nth-child(2):hover {
+    background: #4b2977;
+    color: #f0f0f0;
+}
+
+.quiz-section .feedback-box {
+    position: absolute;
+    /* ortaladık.*/
+    top: 50%;
+    left: 50%;
+    /* ortalama bozuldu*/
+    transform: translate(-50%, -50%) scale(.9);
+    /* ortalama duzeldi*/
+    width: 600px;
+    height: 550px;
+    background: #bfc2b6;
+    border: 3px solid #584b69;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 10px 10px 5px #4b2977;
+    /*sınırlara kadar 20 bosluk kalsın*/
+    display: flex;
+    /*hizalama*/
+    flex-direction: column;
+    /*kolon hizası */
+    /*nesneler ortalandı*/
+    justify-content: space-between;
+    opacity: 0;
+    /* bu iki satırı ekledik kayboldu.*/
+    pointer-events: none;
+    transition: .3s ease;
+
+}
+
+.quiz-section .feedback-box.active {
+    opacity: 1;
+    /* bu iki satırı ekledik kayboldu.*/
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    /* ortalama duzeldi*/
+
+}
+
+.feedback-box .title {
+    font-size: 35px;
+    color: #4b2977;
+    font-weight: 900;
+    height: 0;
+    margin-left: 100px;
+}
+
+.quiz-section .feedback-box .geridiv .geritusu {
+    background-color: #7b82c0;
+    color: #080211;
+    font-size: 10px;
+    font-weight: 1000;
+    padding: 5px 10px;
+    border: 2px solid #090213;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.feedback-box .feedback-text {
+    border: 2px solid #584b69;
+    border-radius: 15px;
+    padding: 10px;
+    width: 500px;
+    font-size: 20px;
+    margin-left: 25px;
+    margin-top: 40px;
+    color: #130433;
+    overflow: auto;
+    height: 370px;
+    justify-content: space-between;
+}
+.feedback-box .feedback-text::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari ve Edge için */
+}
+
+.feedback-box .feedback-footer {
+    width: 400px;
+    height: 57px;
+    font-size: 26px;
+    color: #4b2977;
+    font-weight: 600;
+    margin: 0 60px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.feedback-box .feedback-footer .ana-btn {
+    background-color: #7b82c0;
+    color: #230b46;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #230b46;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-box .feedback-footer .ana-btn:hover {
+    background-color: #4b2977;
+    color: #eae7f0;
+    box-shadow: 5px 5px 5px #544961;
+
+}
+
+.feedback-box .feedback-footer .ana-btn:focus {
+    outline: none;
+}
+

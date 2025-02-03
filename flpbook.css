@@ -1,0 +1,435 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+
+}
+
+:root {
+    --bg-color: url('sbw.jpg') no-repeat;
+    --main-color: #5e68c0;
+    --text-color: #333;
+    --second-text-color: #555;
+    --white-color: #fff;
+    --cover-color: linear-gradient(45deg, #b572bb, #207a9e);
+    --pages-color: linear-gradient(90deg, #fff, #ddd);
+    --border: 0.125rem solid #2c045f;
+    --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+body {
+
+    min-height: 100vh;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden;
+
+}
+
+.wrapper {
+    position: relative;
+    width: 66rem;
+    height: 35rem;
+    padding: 1.4rem;
+    perspective: 250rem;
+    animation: show-animate 2s forwards;
+    margin: -2% 190px;
+}
+
+@keyframes show-animate {
+
+    0%,
+    30% {
+        opacity: 0;
+        transform: rotate(-20deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.cover {
+    /* kapakcık kısmı*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--cover-color);
+    box-shadow: var(--box-shadow);
+    border-top-left-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    transform-origin: right;
+}
+
+.cover.cover-left {
+    z-index: -1;
+}
+
+.cover.cover-right {
+    z-index: 100;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.cover.cover-right.turn {
+    transform: rotateY(180deg);
+}
+
+.book {
+    /* beyaz sayfa kısmı */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    perspective: 250rem;
+
+}
+
+.book .book-page {
+    /* beyaz kısım full ilk sayfa*/
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background: var(--pages-color);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 2rem;
+}
+
+img {
+    /* Yüksekliği otomatik ayarla, orantıyı korur */
+    border-radius: 10px;
+    /* Kenarlarını yuvarla */
+
+}
+
+.book-page.page-left {
+    box-shadow: -0.6rem 0.6rem 0.6rem rgba(0, 0, 0, 0.1);
+}
+
+.profile-page {
+    /*ilksayfa ortada bir part*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+}
+h2 {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    background: linear-gradient(90deg, #b572bb, #207a9e);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #825aa3;
+    padding-bottom: 5px;
+}
+.profile-page h2 {
+    font-size: 1.7rem;
+    line-height: 1.5;
+    background: linear-gradient(90deg,#b572bb, #207a9e);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid #825aa3;
+    padding-bottom: 5px;
+}
+
+.profile-page h4 {
+    font-size: 1.6rem;
+    color: var(--main-color);
+}
+
+.profile-page p {
+    font-size: 15px;
+    text-align: justify;
+}
+
+.profile-page p::-webkit-scrollbar {
+    display: none;
+    /* Kaydırma çubuğunu gizler */
+}
+
+.profile-page .btn-box {
+    margin-top: 2.2rem;
+}
+
+.buton-box {
+    margin-top: 25px;
+    margin-left: 120px;
+
+}
+
+.buton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    background: var(--main-color);
+    border: var(--border);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.buton:hover {
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn {
+    /*ilk sayfa butonlar*/
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.5rem;
+    height: 2rem;
+    background: var(--main-color);
+    border: var(--border);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin: 0 1rem;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2) {
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.book-page.page-right {
+    position: absolute;
+    right: 0;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    /* this is where we turn the pages as book */
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.book-page.page-right.turn {
+    /*1.ve 2.nin div ismi*/
+    transform: rotateY(-180deg);
+}
+
+.book-page .page-front,
+/*bookpage beyaz kısım.*/
+.book-page .page-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem 2rem;
+}
+
+.page5::-webkit-scrollbar {
+    display: none;
+}
+
+.page2 {
+    overflow: auto;
+    height: 370px;
+}
+
+.page5 {
+    overflow: auto;
+    height: 370px;
+}
+
+.contact-box {
+    overflow: auto;
+    height: 360px;
+}
+
+.contact-box::-webkit-scrollbar {
+    display: none;
+}
+
+.page2::-webkit-scrollbar {
+    display: none;
+    /* Kaydırma çubuğunu gizler */
+}
+
+.page3 {
+    overflow: auto;
+    height: 370px;
+}
+
+.page3::-webkit-scrollbar {
+    display: none;
+    /* Kaydırma çubuğunu gizler */
+}
+
+.book-page .page-front {
+    transform: rotateY(0deg) translateZ(1px);
+}
+
+.book-page .page-back {
+    transform: rotateY(180deg) translateZ(1px);
+}
+
+/*her sayfa adı icin rotate yaptık*/
+
+.title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.workeduc-box {
+    /*1 ve 2. sayfada var iç kısmın boxı*/
+    border-left: var(--border);
+    overflow: auto;
+    height: 370px;
+}
+.workeduc-box::-webkit-scrollbar {
+    display: none;
+}
+
+.workeduc-box .workeduc-content {
+    /*içindekiler konu kısmı*/
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 1.2rem;
+
+}
+
+.workeduc-box .workeduc-content:before {
+    /*içindekiler madde yuvarlagı*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.65rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+
+
+.number-page {
+    /*her sayfa nosu*/
+    position: absolute;
+    bottom: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nextprev-btn {
+    /* oklar ileri geri*/
+    position: absolute;
+    bottom: 0.9rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--second-text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.nextprev-btn:hover {
+    color: var(--main-color);
+}
+
+.nextprev-btn.back {
+    left: 1.5rem;
+}
+
+.services-box {
+    /*3kayank galb.sayfa icinde dort s content var*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.services-box .services-content {
+    flex: 1 1 10rem;
+    border: var(--border);
+    border-radius: 0.5rem;
+    text-align: center;
+    padding: 0.8rem 0.5rem 0.1rem;
+    transition: 0.3s ease;
+    height: 150px;
+}
+
+.services-box .services-content:hover {
+    box-shadow: var(--box-shadow);
+}
+
+.services-content h3 {
+    font-size: 1.1rem;
+}
+
+.services-content p {
+    margin: 0.2rem 0 0.8rem;
+}
+
+.services-content .btn {
+    width: 8rem;
+    height: 2.5rem;
+}
+
+.skills-box {
+    height: 370px;
+    overflow: auto;
+
+}
+
+.skills-box::-webkit-scrollbar {
+    display: none;
+}
+
+.skills-box .skills-content {
+    flex: 1 1 20rem;
+}
+
+.skills-content h3 {
+    font-size: 1.3rem;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+}
+
+.skills-content .content {
+    /*4. sayfa content icinde s var sadece*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 60rem;
+        height: 40rem;
+    }
+}
